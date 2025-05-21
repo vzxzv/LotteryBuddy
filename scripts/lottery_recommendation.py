@@ -46,7 +46,7 @@ def send_email(subject, content):
     msg['To'] = recipient_email
     msg['Subject'] = subject
 
-    msg.attach(MIMEText(content, 'plain'))
+    msg.attach(MIMEText(content, 'html'))
 
     try:
         # 使用QQ邮箱的SMTP服务器
@@ -201,13 +201,15 @@ def main():
     
     # 构建邮件内容
     content = f"""
-    您好！
-
-    今日{lottery_type}推荐号码：
-    {numbers}
-
-    注：推荐号码为随机生成，仅供参考。
-    祝您好运！
+    <html>
+      <body>
+        <p>您好！</p>
+        <p>今日{lottery_type}推荐号码：</p>
+        <pre style="background-color: #f0f0f0; padding: 10px; border-radius: 5px; font-weight: bold;">{numbers}</pre>
+        <p>注：推荐号码为随机生成，仅供参考。</p>
+        <p>祝您好运！</p>
+      </body>
+    </html>
     """
     
     subject = f"今日{lottery_type}智能推荐号码"
@@ -217,4 +219,4 @@ def main():
     print("程序执行完成")
 
 if __name__ == "__main__":
-    main() 
+    main()
