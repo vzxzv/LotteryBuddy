@@ -62,7 +62,7 @@ jobs:
       - name: 运行彩票脚本
         if: steps.check_friday.outputs.is_friday != 'true'
         run: |
-          if [ "${{ github.event.schedule }}" == "0 2 * * *" ] || [ "${{ github.event.inputs.action_type }}" == "recommend" ]; then
+          if [ "${{ github.event.schedule }}" == "0 1 * * *" ] || [ "${{ github.event.inputs.action_type }}" == "recommend" ]; then
             python scripts/lottery_recommendation.py
           else
             python scripts/lottery_check.py
