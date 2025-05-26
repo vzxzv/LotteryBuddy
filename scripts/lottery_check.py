@@ -185,7 +185,7 @@ def main():
         # 检查是否中奖
         result = check_winning(lottery_type, recommended_numbers, winning_numbers)
         
-        subject = f"今日{lottery_type}开奖结果"
+        subject = f"今日{lottery_type}开奖结果：{result}"
         content = f"""<html>
           <head><style>body {{ font-family: Arial, sans-serif; }} .section {{ margin-bottom: 20px; }} .title {{ color: #2c3e50; font-weight: bold; }} .numbers {{ font-family: monospace; background: #f8f9fa; padding: 10px; border-radius: 4px; }} .number-section {{ margin-bottom: 15px; padding: 10px; border: 1px solid #e0e0e0; border-radius: 4px; }} .section-title {{ font-size: 1.1em; color: #34495e; margin-bottom: 8px; font-weight: bold; }} .number-row {{ margin-bottom: 6px; }} .label {{ color: #7f8c8d; margin-right: 8px; }}</style></head>
           <body>
