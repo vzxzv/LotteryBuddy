@@ -98,9 +98,9 @@ def check_winning(lottery_type, recommended_numbers, winning_numbers):
         
         # 判断中奖等级
         if front_matches == 5 and back_matches == 2:
-            return "🎉恭喜您中了一等奖！成功实现财富自由！！！🎉"
+            return "🥳恭喜您中了一等奖！成功实现财富自由！！！🎉"
         elif front_matches == 5 and back_matches == 1:
-            return "🎉恭喜您中了二等奖！！！！！！！！！！！！🎉"
+            return "🥳恭喜您中了二等奖！！！！！！！！！！！！🎉"
         elif front_matches == 5 and back_matches == 0:
             return "🎉恭喜您中了三等奖！奖金为10000元~"
         elif front_matches == 4 and back_matches == 2:
@@ -134,9 +134,9 @@ def check_winning(lottery_type, recommended_numbers, winning_numbers):
         
         # 判断中奖等级
         if red_matches == 6 and blue_match:
-            return "🎉恭喜您中了一等奖！成功实现财富自由！！！🎉"
+            return "🥳恭喜您中了一等奖！成功实现财富自由！！！🎉"
         elif red_matches == 6 and not blue_match:
-            return "🎉恭喜您中了二等奖！！！！！！！！！！！！🎉"
+            return "🥳恭喜您中了二等奖！！！！！！！！！！！！🎉"
         elif red_matches == 5 and blue_match:
             return "🎉恭喜您中了三等奖！奖金为3000元~"
         elif (red_matches == 5 and not blue_match) or (red_matches == 4 and blue_match):
@@ -201,17 +201,17 @@ def main():
               <div class="numbers">{' '.join(winning_numbers)}</div>
             </div>
             <div class="section">
-              <p class="title">您的推荐号码：</p>
+              <p class="title">您的号码：</p>
               <div class="numbers">{recommended_numbers}</div>
             </div>
             <div class="section">
-              <p class="title">号码对比：</p>
+              <p class="title">号码匹配：</p>
               <div class="numbers">{format_number_comparison(lottery_type, recommended_numbers, winning_numbers)}</div>
             </div>
             <div class="section">
               <p class="title">{result}</p>
             </div>
-            <p>祝您中奖！</p>
+            <p>祝您早日中奖！实现财富自由~🫵💪👊🫶😁</p>
           </body>
         </html>"""
         print(f"\n今日{lottery_type}开奖结果：")
@@ -224,7 +224,7 @@ def main():
         print("无法获取开奖结果")
 
 def format_number_comparison(lottery_type, recommended_numbers, winning_numbers):
-    """格式化号码对比信息"""
+    """格式化号码匹配信息"""
     if lottery_type == "大乐透":
         # 解析推荐号码
         recommended = recommended_numbers.replace("前区：", "").replace("后区：", "").split("，")
@@ -246,13 +246,13 @@ def format_number_comparison(lottery_type, recommended_numbers, winning_numbers)
         back_winning_str = " ".join([f"{n:02d}" for n in back_winning])
         
         return f"""<div class="number-section">
-            <div class="section-title">前区对比</div>
+            <div class="section-title">前区匹配</div>
             <div class="number-row"><span class="label">推荐：</span><span class="numbers">{front_recommended_str}</span></div>
             <div class="number-row"><span class="label">开奖：</span><span class="numbers">{front_winning_str}</span></div>
             <div class="number-row"><span class="label">匹配：</span><span class="numbers">{' '.join([f"{n:02d}" for n in front_matches])}（{len(front_matches)}个）</span></div>
         </div>
         <div class="number-section">
-            <div class="section-title">后区对比</div>
+            <div class="section-title">后区匹配</div>
             <div class="number-row"><span class="label">推荐：</span><span class="numbers">{back_recommended_str}</span></div>
             <div class="number-row"><span class="label">开奖：</span><span class="numbers">{back_winning_str}</span></div>
             <div class="number-row"><span class="label">匹配：</span><span class="numbers">{' '.join([f"{n:02d}" for n in back_matches])}（{len(back_matches)}个）</span></div>
@@ -276,13 +276,13 @@ def format_number_comparison(lottery_type, recommended_numbers, winning_numbers)
         red_winning_str = " ".join([f"{n:02d}" for n in red_winning])
         
         return f"""<div class="number-section">
-            <div class="section-title">红球对比</div>
+            <div class="section-title">红球匹配</div>
             <div class="number-row"><span class="label">推荐：</span><span class="numbers">{red_recommended_str}</span></div>
             <div class="number-row"><span class="label">开奖：</span><span class="numbers">{red_winning_str}</span></div>
             <div class="number-row"><span class="label">匹配：</span><span class="numbers">{' '.join([f"{n:02d}" for n in red_matches])}（{len(red_matches)}个）</span></div>
         </div>
         <div class="number-section">
-            <div class="section-title">蓝球对比</div>
+            <div class="section-title">蓝球匹配</div>
             <div class="number-row"><span class="label">推荐：</span><span class="numbers">{blue_recommended:02d}</span></div>
             <div class="number-row"><span class="label">开奖：</span><span class="numbers">{blue_winning:02d}</span></div>
             <div class="number-row"><span class="label">匹配：</span><span class="numbers">{'是' if blue_match else '否'}</span></div>
